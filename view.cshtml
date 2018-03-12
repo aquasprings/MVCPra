@@ -1,0 +1,26 @@
+@model IEnumerable<WebApplication12.Models.registerpraveen>
+@{
+    ViewBag.Title = "view";
+    WebGrid g = new WebGrid(Model);
+}
+
+<h2>view</h2>
+@g.GetHtml(tableStyle: "table table-bordered table-hover",
+    columns: new[]
+    {   g.Column("regId","Registered Id"),
+        g.Column("Name","Name"),
+        g.Column("sex","sex"),
+g.Column("Age","Age"),
+g.Column("city","city"),
+g.Column(format:@<text>
+@Html.ActionLink("delete","deleterow",new {id=item.regId } )
+@Html.ActionLink("Update","Update",new {id=item.regId } )
+</text>)
+
+    }
+    )
+
+    
+
+
+

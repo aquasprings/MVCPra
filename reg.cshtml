@@ -1,0 +1,44 @@
+@model WebApplication12.Models.registerpraveen
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>@Html.Label("Name :")</td>
+            <td>@Html.TextBoxFor(a => a.Name)</td>
+            <td>@Html.ValidationMessageFor(a => a.Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Sex :")</td>
+            <td>
+                @Html.RadioButtonFor(m => m.sex, "male") male
+                @Html.RadioButtonFor(m => m.sex, "female")female
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Age :")</td>
+            <td>@Html.TextBoxFor(a => a.Age)</td>
+            <td>@Html.ValidationMessageFor(a => a.Age)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("City :")</td>
+            <td>@Html.TextBoxFor(a => a.city)</td>
+            <td>@Html.ValidationMessageFor(a => a.city)</td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value=" Register" class="btn btn-primary btn-success " />
+                <input type="reset" value="Reset" class="btn btn-primary btn-success " onclick="clearImmediate " />
+                @Html.ActionLink("View Details", "view")
+
+
+            </td>
+        </tr>
+    </table>
+}
+

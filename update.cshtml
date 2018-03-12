@@ -1,0 +1,20 @@
+@model WebApplication12.Models.registerpraveen
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+@using (Html.BeginForm())
+{
+    <tr>
+        <td>@Html.Label("City :")</td>
+        <td>@Html.TextBoxFor(a => a.city)</td>
+        <td>@Html.ValidationMessageFor(a => a.city)</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value=" Update" class="btn btn-primary btn-success " />
+        </td>
+        
+    </tr>
+}

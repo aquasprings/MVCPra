@@ -1,0 +1,29 @@
+@model WebApplication12.Models.loginpraveen
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>@Html.Label("User Id  :")</td>
+            <td>@Html.TextBoxFor(a=>a.username)</td>
+            <td>@Html.ValidationMessageFor(a => a.username)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Password  :")</td>
+            <td>@Html.TextBoxFor(a => a.password,new {type="password" })</td>
+            <td>@Html.ValidationMessageFor(a => a.password)</td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value=" Login" class="btn btn-primary btn-success " />
+                <input type="reset" value="Reset" class="btn btn-primary btn-success " onclick="clearImmediate " />
+            </td>
+        </tr>
+    </table>
+}
+

@@ -1,0 +1,63 @@
+use DB01TEST01
+
+create table loginpraveen(id int primary key,username nvarchar(50),password nvarchar(50))
+
+select * from loginpraveen
+
+insert into loginpraveen values(1,'admin','admin')
+
+
+go
+create procedure
+sp_loginpraveen
+@loginid int out,
+@username nvarchar(50),
+@password nvarchar(50)
+as
+begin
+set @loginid=(select count(id) from loginpraveen where username=@username and password=@password)
+end
+
+
+create table registerpraveen(regId int primary key identity(100,1),Name nvarchar(50),sex nvarchar(50),Age int,city nvarchar(50))
+select * from registerpraveen
+
+
+go
+create procedure
+sp_registerpraveen
+@regId int out,
+@Name nvarchar(50),
+@sex nvarchar(50),
+@Age int,
+@city nvarchar(50)
+as
+begin
+insert into registerpraveen(Name,sex,Age,city) values(@Name,@sex,@Age,@city)
+set @regId=@@identity;
+end
+
+
+
+go 
+create procedure
+sp_praveendelete
+@id int
+as
+begin
+delete from registerpraveen where regId=@id
+end
+delete from registerpraveen where regId=103
+
+
+
+go
+create procedure
+sp_praveenupdate
+@id int,
+@city nvarchar(50)
+
+as
+begin
+update registerpraveen set city=@city where regId=@id
+end
